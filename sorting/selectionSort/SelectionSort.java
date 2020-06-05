@@ -1,13 +1,16 @@
 package sorting.selectionSort;
 
-import java.util.Arrays;
 
+/**
+ * A class that implements Selection Sort
+ */
 public class SelectionSort {
 
     /**
      * Selection Sort Algorithm
      *
      * We keep track of minIndex whose value is less than others.
+     * (In the "still unsorted")
      *
      * @param vals: int array
      */

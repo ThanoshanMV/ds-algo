@@ -30,7 +30,7 @@ public class BinarySearch {
                 low = mid+1;
             }
             else {
-                return airports[mid].getCity();
+                return airports[mid].getCode();
             }
         }
         return null;

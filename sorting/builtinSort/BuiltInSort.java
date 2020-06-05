@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * A class that implement Java's built-in sort (Collections Class)
+ */
 public class BuiltInSort {
     public static void main(String[] args) {
         List<Airport> airport = new ArrayList<Airport>();
@@ -20,7 +23,14 @@ public class BuiltInSort {
             System.out.print(a.getCountry()+" , ");
         }
         System.out.println("");
+
+        /**
+         * Collections class' sort method uses compareTo method in
+         * comparable interface's implementation in Airport Class
+         * to sort items.
+         */
         Collections.sort(airport);
+
         System.out.println("After Java's buil-in Sort: ");
         for(Airport a: airport){
             System.out.print(a.getCountry()+" , ");
@@ -30,7 +40,7 @@ public class BuiltInSort {
 
 /**
  * Using Comparable interface to tell Java in which way we want to
- * compare Airport Object
+ * compare(sort) Airport Object
  */
 class Airport implements Comparable<Airport>{
     private String city;

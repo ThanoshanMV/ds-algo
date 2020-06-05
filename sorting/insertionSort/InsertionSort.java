@@ -1,6 +1,8 @@
 package sorting.insertionSort;
 
-
+/**
+ * A class that implements Insertion Sort
+ */
 public class InsertionSort {
 
     /**
