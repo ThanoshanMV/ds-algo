@@ -150,7 +150,7 @@ public class AdjacencyMatrix extends Graph{
         System.out.println("Initial Edges in the Graph " + gh.getEdges());
         System.out.println("");
 
-        // Add verices 0,1,2,3
+        // Add vertices 0,1,2,3,4,5,6,7,8,9,10,11,12
         gh.addVertex(); // 0
         gh.addVertex(); // 1
         gh.addVertex(); // 2
@@ -203,7 +203,8 @@ public class AdjacencyMatrix extends Graph{
         System.out.println("Vertex 0's out neighbour should be Vertex 1 and Vertex 2: " + gh.getNeighbors(0));
         System.out.println("Vertex 1's out neighbour should be none: " + gh.getNeighbors(1));
         System.out.println("Vertex 2's out neighbour should be Vertex 3: " + gh.getNeighbors(2));
-        System.out.println("Vertex 3's out neighbour should be none: " + gh.getNeighbors(3));
+        System.out.println("Vertex 3's out neighbour should be Vertex 4 and Vertex 5: " + gh.getNeighbors(3));
+        System.out.println("Vertex 9's out neighbour should be Vertex 11 and Vertex 12: " + gh.getNeighbors(9));
         System.out.println("");
 
         // Checking in neighbors
@@ -211,10 +212,13 @@ public class AdjacencyMatrix extends Graph{
         System.out.println("Vertex 1's in neighbour should be Vertex 0: " + gh.getInNeighbors(1));
         System.out.println("Vertex 2's in neighbour should be Vertex 0: " + gh.getInNeighbors(2));
         System.out.println("Vertex 3's in neighbour should be Vertex 2: " + gh.getInNeighbors(3));
+        System.out.println("Vertex 7's in neighbour should be Vertex 4: " + gh.getInNeighbors(7));
         System.out.println("");
 
         // Checking two hop neighbors
         System.out.println("Vertex 0's two hop neighbors should be Vertex 3: " + gh.getDistance2(0));
+        System.out.println("Vertex 4's two hop neighbors should be Vertex 8: " + gh.getDistance2(4));
+        System.out.println("Vertex 5's two hop neighbors should be Vertex 11 and Vertex 12: " + gh.getDistance2(5));
         System.out.println("");
 
         // Depth First Search
