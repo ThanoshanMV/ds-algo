@@ -1,8 +1,7 @@
 package Graphs;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * An abstract class that implements a directed graph.
@@ -121,6 +120,86 @@ public abstract class Graph {
      * following two edges) from vertex v.
      */
     public abstract List<Integer> getDistance2(int v);
+
+    /**
+     * Method that implements DFS Algorithm.
+     * DFS searches all the way deep along a single path until it gets stuck or
+     * reaches its goal. If it gets stuck, retraces the step and tries again.
+     *
+     * In order to retrace steps we need LIFO approach DS. That's Stack DS.
+     *
+     * DFS uses Stack Data Structure.
+     *
+     * @param start start vertex
+     * @param goal toFind vertex
+     * @return path from start to goal
+     */
+    public Map depthFirstSearch(int start, int goal){
+        // Initialize Stack, Set and Map
+        Stack<Integer> stack = new Stack<Integer>();
+        Set<Integer> visited = new HashSet<Integer>();
+        Map<Integer, Integer> parent = new HashMap<Integer, Integer>();
+        // Add start vertex to stack and to visited
+        stack.push(start);
+        visited.add(start);
+        // while stack is not empty
+        while(!stack.isEmpty()){
+            int currentVertex = stack.pop();
+            if(currentVertex == goal){
+                return parent;
+            }
+            for(int newlyDiscoveredVertex: getNeighbors(currentVertex)){
+                // if n is not previously visited
+                if(!visited.contains(newlyDiscoveredVertex)){
+                    stack.push(newlyDiscoveredVertex);
+                    visited.add(newlyDiscoveredVertex);
+                    // mapping newly discovered vertex to its previous vertex
+                    parent.put(newlyDiscoveredVertex,currentVertex);
+                }
+            }
+        }
+        // There is no path to start vertex to end vertex
+        return null;
+    }
+
+    /**
+     * Method that implements BFS Algorithm.
+     * BFS has similar algorithm like DFS but the only
+     * difference is BFS uses Queue DS.
+     *
+     * BFS uses Queue Data Structure.
+     *
+     * @param start start vertex
+     * @param goal toFind vertex
+     * @return path from start to goal
+     */
+    public Map breadthFirstSearch(int start, int goal){
+        // Initialize Queue, Set and Map
+        Queue<Integer> queue = new LinkedList<Integer>();
+        Set<Integer> visited = new HashSet<Integer>();
+        Map<Integer, Integer> parent = new HashMap<Integer, Integer>();
+        // Add start vertex to queue and to visited
+        queue.add(start);
+        visited.add(start);
+        // while queue is not empty
+        while(!queue.isEmpty()){
+            int currentVertex = queue.remove();
+            if(currentVertex == goal){
+                return parent;
+            }
+            for(int newlyDiscoveredVertex: getNeighbors(currentVertex)){
+                // if n is not previously visited
+                if(!visited.contains(newlyDiscoveredVertex)){
+                    queue.add(newlyDiscoveredVertex);
+                    visited.add(newlyDiscoveredVertex);
+                    // mapping newly discovered vertex to its previous vertex
+                    parent.put(newlyDiscoveredVertex,currentVertex);
+                }
+            }
+        }
+        // There is no path to start vertex to end vertex
+        return null;
+    }
 
     /***
      * Getter methods
